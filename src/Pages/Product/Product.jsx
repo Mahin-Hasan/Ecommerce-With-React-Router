@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLoaderData, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 
 const Product = () => {
     // const product = useLoaderData()l
@@ -17,11 +17,12 @@ const Product = () => {
             .then(data => setProduct(data))
     }, [data.id])
 
-    const { id, thumbnail, price, stock, title } = product || {};
+    const {  thumbnail, price, title } = product || {};
 
     console.log(product);
     return (
-        <div className="w-full h-96 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div className="flex h-screen justify-center items-center">
+<div className="w-full h-96 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <a href="#">
                 <img
                     className="p-8 rounded-t-lg h-52 w-full"
@@ -93,6 +94,7 @@ const Product = () => {
 
                 </div>
             </div>
+        </div>
         </div>
     );
 };

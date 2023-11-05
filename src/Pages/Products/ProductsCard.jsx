@@ -1,9 +1,23 @@
-import { Link } from "react-router-dom";
+import { Children } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 
 const ProductsCard = ({ product }) => {
 
     const { id, images, price, stock, title } = product || {} // ||{} means if no product is available give and empty string
+
+    const navigate = useNavigate()
+
+    const handleSingleItemNavigate = () => {
+        console.log('nice');
+
+        const user = true;
+        if(user){
+            navigate(`/products/${id}`);
+        }else{
+            navigate(`/`);
+        }
+    }
     console.log(id);
     return (
         <div className="w-full h-96 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -74,9 +88,12 @@ const ProductsCard = ({ product }) => {
                     <span className="text-3xl font-bold text-gray-900 dark:text-white">
                         ${price}
                     </span>
-                    <Link to={`/products/${id}`}>
+                    {/* trying navigate hook */}
+
+                    <button onClick={handleSingleItemNavigate} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"> View Details</button>
+                    {/* <Link to={`/products/${id}`}>
                     <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"> View Details</button>
-                    </Link>
+                    </Link> */}
                 </div>
             </div>
         </div>
