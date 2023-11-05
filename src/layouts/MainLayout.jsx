@@ -1,12 +1,33 @@
 import { Outlet } from "react-router-dom";
+import Footer from "../Pages/Footer/Footer";
 
 const MainLayout = () => {
     return (
         <div>
-            <section>
-                <div className='py-5 shadow-lg'>Nav</div>
-                <Outlet></Outlet>
+            <section className="flex justify-between px-10 shadow-md py-7">
+                <div>
+                    <h1 className="text-xl font-bold text-orange-400">Amazon</h1>
+                </div>
+                <nav>
+                    <ul className="flex gap-5">
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+                        <li>
+                            <a href="/products">Products</a>
+                        </li>
+                        <li>
+                            <a href="/dashborad">DashBoard</a>
+                        </li>
+                    </ul>
+                </nav>
             </section>
+            <div className="min-h-screen">
+                <Outlet></Outlet>
+            </div>
+            <Footer></Footer>
+
+
         </div>
     );
 };
